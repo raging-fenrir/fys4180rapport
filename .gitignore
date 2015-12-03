@@ -1,0 +1,5 @@
+.git
+*.aux
+*.log
+.conf
+.eksRapport/
