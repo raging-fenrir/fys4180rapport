@@ -79,11 +79,12 @@ Constantini phase unwrapping which is based on an article written by M. Constant
 as $\phi$ is changed. 
 
 \subsection {Diffusion of table salt in water}
+
 The reason for this experiment was to test the equipment to see if every component
 could work together and also get an approximation of how well the accuracy is.
 To be able to control the phase shift with the piezo we did a callibration to find
 which voltage represented one wavelength. By using the background it was measured to
-be a factor of 1.12 which was multiplied to the signal out. Then we placed a rectangle 
+be a factor of 1.12 which we multiplied to the signal out to the Nidaq. Then we placed a rectangle 
 sided vial with clear plastic in the middle in front of the beam.
 
 \begin {figure}[ht!]
@@ -94,5 +95,23 @@ sided vial with clear plastic in the middle in front of the beam.
           which arise from the camera not being completely aligned.}
 \end {figure}
 
-The vial were filled with 2.16 g of water and a piece of 3 mg of salt was added to it.
-Now the Matlab program started running which took 
+The vial were filled with 2.16 g of water and a piece of 3 mg of salt was added to it,
+and a Matlab code took a picture about every 2 minutes depending on how long the 
+unwrapping algorithm took. This went on overnight and we got around 300 measurements.
+%Sett inn bildeserie
+
+\subsection {Calcit erosion by water}
+
+The goal of this experiment was to get an estimate of how accurate this setup can
+be. It was made a calcit sample by taking a plexi glass surface, bore four holes
+in it and two other plexi cubes. Then using a special sticker with glue on it to
+fasten the calcit to the plexi surface and creating two canals, with a wdith of about
+300 $\mu$m, between the glass and the calcit. Two plastic tubes are threaded down 
+on each side of a canal through the plexi cubes so it can deliver a water stream 
+through the canals. The water delivery system was a syringe put on an automated pump. 
+We set the pump to 10 nl/s and started the same Matlab program as with the diffusion
+experiment only with about 5 minute spaces between the measurements.
+
+
+
+
