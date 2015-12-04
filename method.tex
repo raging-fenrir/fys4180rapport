@@ -82,6 +82,8 @@ as $\phi$ is changed.
 
 The reason for this experiment was to test the equipment to see if every component
 could work together and also get an approximation of how well the accuracy is.
+We expected to see an inclination rising as the salt diffused into the water since
+the optical path length rises when the water and salt gets mixed.
 To be able to control the phase shift with the piezo we did a callibration to find
 which voltage represented one wavelength. By using the background it was measured to
 be a factor of 1.12 which we multiplied to the signal out to the Nidaq. Then we placed a rectangle 
@@ -98,20 +100,89 @@ sided vial with clear plastic in the middle in front of the beam.
 The vial were filled with 2.16 g of water and a piece of 3 mg of salt was added to it,
 and a Matlab code took a picture about every 2 minutes depending on how long the 
 unwrapping algorithm took. This went on overnight and we got around 300 measurements.
+\begin {figure}[ht!]
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [width=5cm]{bilder/diff2.pdf}
+\caption {The first image taken after starting the experiment. To th right is the
+unwrapped phase subtracted from the background giving it a zero value. On the z-axis
+the phase is plotted in radians and the x-y plane is in pixels. To the right
+is the image from the camera.}
+\end {subfigure}
+\hfill
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [width=5cm]{bilder/diff102.pdf}
+\caption {After almost 4 hours the salt has diffused into the solution and the phase
+has become a lot steeper. As seen on the camera the number of fringes has increased
+significantly. There are also some optical effects due to too much salt as one can
+see in both the phase and the camera.}
+\end {subfigure}
+
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [width=5cm]{bilder/diff202.pdf}
+\caption {7 hours in the phase is showing some warped behaviour due to the salt amount}
+\end {subfigure}
+\hfill
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [width=5cm]{bilder/diff302.pdf}
+\caption {11 hours into the experiment the solution has quiet down and shows a
+steep inclination compared to the background which is expected since the optical
+path length is higher in salt water then in pure water}
+\end {subfigure}
+\end {figure}
 %Sett inn bildeserie
 
 \subsection {Calcit erosion by water}
 
-The goal of this experiment was to get an estimate of how accurate this setup can
-be. It was made a calcit sample by taking a plexi glass surface, bore four holes
+The goal of this experiment was to get an estimate of how accurate this setup can be.
+We want to see an erosion beginning in the start of the canal and have an exponential
+difference in optical path length along the canal as the erosion takes place.
+It is expected to be a steep inclination in the beginning of the unwrapping picture
+and as the experiment goes on, the inclination should spread to the entire picture.
+
+\begin {figure}[ht!]
+\includegraphics [width=10cm]{bilder/calcitsample.pdf}
+\caption {%
+It was made of a calcit sample by taking a plexi glass surface, bore four holes
 in it and two other plexi cubes. Then using a special sticker with glue on it to
 fasten the calcit to the plexi surface and creating two canals, with a wdith of about
 300 $\mu$m, between the glass and the calcit. Two plastic tubes are threaded down 
 on each side of a canal through the plexi cubes so it can deliver a water stream 
-through the canals. The water delivery system was a syringe put on an automated pump. 
+through the canals.}
+\end {figure}
+
+The water delivery system was a syringe put on an automated pump 
+(kdScientific, LEGATO 180). 
 We set the pump to 10 nl/s and started the same Matlab program as with the diffusion
-experiment only with about 5 minute spaces between the measurements.
+experiment only with about 5 minute spaces between the measurements and the experiment
+went on for about 24 hours. The second experiment was with the same paramaters but with 
+added salt peter acid to the water to get a larger erosion rate. The unwrapping of
+the phase were done in the area from 5 pixels above to 5 pixels below the canal, 
+and the canal before the erosion was about 2 pixels wide.
 
-
-
-
+%\begin {figure}[ht!]
+%\hspace* {-1.5cm}
+%\begin {subfigure}[h]{0.35\textwidth}
+%\includegraphics [width=8cm]{bilder/calcit1.pdf}
+%\caption {First measurement where there is just noise as expected in the
+%unwrapped phase picture and there is no erosion in the canal. We used the top
+%canal.}
+%\end {subfigure}
+%\hfill
+%\begin {subfigure}[h]{0.35\textwidth}
+%\includegraphics [width=8cm]{bilder/calcit351.pdf}
+%\caption {After 3 hours there are very distinct changes in the optical path length
+%in the measurement at the beginning of the canal.}
+%\end {subfigure}
+%
+%\hspace* {-1.5cm}
+%\begin {subfigure}[h]{0.35\textwidth}
+%\includegraphics [width=8cm]{bilder/calcit1551.pdf}
+%\caption {Half way through the experiment with a clear change in the optical path length
+%in the measurement.}
+%\end {subfigure}
+%\hfill
+%\begin {subfigure}[h]{0.35\textwidth}
+%\includegraphics [width=8cm]{bilder/calcit2751.pdf}
+%\caption {The image has not changed much and the erosion has virtually stopped.}
+%\end {subfigure}
+%\end {figure}
