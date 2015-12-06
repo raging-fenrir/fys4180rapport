@@ -21,12 +21,16 @@ through a sample cell which contains what we are measuring.
 Then it is sent to a beam collector and the interference pattern is picked up by
 a CCD camera (Imaging Source, DMK 21BUC03) which is connected to a computer who stores the data.
 The second beam travels without hinderance to the collector.
-
+\begin {figure}[ht!]
+\includegraphics [width=15cm]{bilder/MZ.pdf}
+\caption {A sketch of the setup described above.}
+\end {figure}
 \subsection {Unwrapping}
 To analyze the data coming from the camera we used a method called unwrapping.
 As we only get an intensity from the camera we have to translate this into something
 we can use to analyze the motion of the phase picture. Most of this section
-is collected from Optical Measurement of Surface Topography.\cite{omst} 
+is collected from the book Optical Measurement of Surface Topography chapter 8
+\cite{omst}.
 The interference signal can be expressed as:
 \begin {equation}
 I(\phi) = I_{DC} + I_{AC}\cos[\theta + \phi]
@@ -72,9 +76,10 @@ and therefore have false drops.
 \includegraphics [width=10cm]{bilder/unwrap.png}
 \caption {\cite{omst}An illustrative graph of a wrapped and unwrapped phase picture respectivly 
 with unit length on the x and y axis, z in radians.}
+\label {unwrap}
 \end {figure}
 To correct these drops we used a 2 dimensional unwrapping algorithm in Matlab called
-Constantini phase unwrapping which is based on an article written by M. Constantini 
+Constantini phase unwrapping \cite{bl} which is based on an article written by M. Constantini 
 \cite{const}. This unwrapping of the phase gives a picture of how the phase $\theta$ is moving
 as $\phi$ is changed. 
 
@@ -95,6 +100,7 @@ sided vial with clear plastic in the middle in front of the beam.
           of the beam because of the difference in optical path length compared to the %
           unhindered beam. At the far sides there is a background inteference pattern %
           which arise from the camera not being completely aligned.}
+\label {diffsamp}
 \end {figure}
 
 The vial were filled with 2.16 g of water and a piece of 3 mg of salt was added to it,
@@ -102,38 +108,43 @@ and a Matlab code took a picture about every 2 minutes depending on how long the
 unwrapping algorithm took. This went on overnight and we got around 300 measurements.
 \begin {figure}[ht!]
 \begin {subfigure}[h]{0.35\textwidth}
-\includegraphics [width=5cm]{bilder/diff2.pdf}
-\caption {The first image taken after starting the experiment. To th right is the
+\includegraphics [frame,width=5cm]{bilder/diff2.pdf}
+\caption {The first image taken after starting the experiment. To the right is the
 unwrapped phase subtracted from the background giving it a zero value. On the z-axis
 the phase is plotted in radians and the x-y plane is in pixels. To the right
-is the image from the camera.}
+is the image from the camera with both axes in pixels}
+\label {diff1}
 \end {subfigure}
 \hfill
 \begin {subfigure}[h]{0.35\textwidth}
-\includegraphics [width=5cm]{bilder/diff102.pdf}
+\includegraphics [frame,width=5cm]{bilder/diff102.pdf}
 \caption {After almost 4 hours the salt has diffused into the solution and the phase
 has become a lot steeper. As seen on the camera the number of fringes has increased
 significantly. There are also some optical effects due to too much salt as one can
 see in both the phase and the camera.}
+\label {diff2}
 \end {subfigure}
 
 \begin {subfigure}[h]{0.35\textwidth}
-\includegraphics [width=5cm]{bilder/diff202.pdf}
+\includegraphics [frame,width=5cm]{bilder/diff202.pdf}
 \caption {7 hours in the phase is showing some warped behaviour due to the salt amount}
+\label {diff3}
 \end {subfigure}
 \hfill
 \begin {subfigure}[h]{0.35\textwidth}
-\includegraphics [width=5cm]{bilder/diff302.pdf}
+\includegraphics [frame,width=5cm]{bilder/diff302.pdf}
 \caption {11 hours into the experiment the solution has quiet down and shows a
 steep inclination compared to the background which is expected since the optical
 path length is higher in salt water then in pure water}
+\label {diff4}
 \end {subfigure}
 \end {figure}
 %Sett inn bildeserie
 
 \subsection {Calcit erosion by water}
 
-The goal of this experiment was to get an estimate of how accurate this setup can be.
+The goal of this experiment was to get an estimate of how accurate this setup can be,
+and find out what had to be changed to increase the precision.
 We want to see an erosion beginning in the start of the canal and have an exponential
 difference in optical path length along the canal as the erosion takes place.
 It is expected to be a steep inclination in the beginning of the unwrapping picture
@@ -148,6 +159,7 @@ fasten the calcit to the plexi surface and creating two canals, with a wdith of 
 300 $\mu$m, between the glass and the calcit. Two plastic tubes are threaded down 
 on each side of a canal through the plexi cubes so it can deliver a water stream 
 through the canals.}
+\label {calsketch}
 \end {figure}
 
 The water delivery system was a syringe put on an automated pump 
@@ -155,34 +167,39 @@ The water delivery system was a syringe put on an automated pump
 We set the pump to 10 nl/s and started the same Matlab program as with the diffusion
 experiment only with about 5 minute spaces between the measurements and the experiment
 went on for about 24 hours. The second experiment was with the same paramaters but with 
-added salt peter acid to the water to get a larger erosion rate. The unwrapping of
+added salt peter acid to the water, 0.05 molare, to get a larger erosion rate. The unwrapping of
 the phase were done in the area from 5 pixels above to 5 pixels below the canal, 
 and the canal before the erosion was about 2 pixels wide.
+\begin {figure}[ht!]
+\hspace* {-1.5cm}
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [frame,width=7cm]{bilder/calcit1.pdf}
+\caption {First measurement where there is just noise as expected in the
+unwrapped phase picture and there is no erosion in the canal. We used the top
+canal.}
+\label {cal1}
+\end {subfigure}
+\hfill
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [frame,width=7cm]{bilder/calcit351.pdf}
+\caption {After 3 hours there are very distinct changes in the optical path length
+in the measurement at the beginning of the canal.}
+\label {cal2}
+\end {subfigure}
 
-%\begin {figure}[ht!]
-%\hspace* {-1.5cm}
-%\begin {subfigure}[h]{0.35\textwidth}
-%\includegraphics [width=8cm]{bilder/calcit1.pdf}
-%\caption {First measurement where there is just noise as expected in the
-%unwrapped phase picture and there is no erosion in the canal. We used the top
-%canal.}
-%\end {subfigure}
-%\hfill
-%\begin {subfigure}[h]{0.35\textwidth}
-%\includegraphics [width=8cm]{bilder/calcit351.pdf}
-%\caption {After 3 hours there are very distinct changes in the optical path length
-%in the measurement at the beginning of the canal.}
-%\end {subfigure}
-%
-%\hspace* {-1.5cm}
-%\begin {subfigure}[h]{0.35\textwidth}
-%\includegraphics [width=8cm]{bilder/calcit1551.pdf}
-%\caption {Half way through the experiment with a clear change in the optical path length
-%in the measurement.}
-%\end {subfigure}
-%\hfill
-%\begin {subfigure}[h]{0.35\textwidth}
-%\includegraphics [width=8cm]{bilder/calcit2751.pdf}
-%\caption {The image has not changed much and the erosion has virtually stopped.}
-%\end {subfigure}
-%\end {figure}
+\hspace* {-1.5cm}
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [frame,width=7cm]{bilder/calcit1551.pdf}
+\caption {Half way through the experiment with a clear change in the optical path length
+in the measurement.}
+\label {cal3}
+\end {subfigure}
+\hfill
+\begin {subfigure}[h]{0.35\textwidth}
+\includegraphics [frame,width=7cm]{bilder/calcit2751.pdf}
+\caption {The image has not changed much and the erosion has virtually stopped.}
+\label {cal4}
+\end {subfigure}
+\end {figure}
+\quad
+
